@@ -1,7 +1,7 @@
-const path = require('path')
+import * as path from 'path'
 const webpack = require('webpack')
 
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+import * as HtmlWebpackPlugin from 'html-webpack-plugin'
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
     template: './client/index.html',
     filename: 'index.html',
@@ -24,8 +24,7 @@ module.exports = {
 			{test: /\.tsx$/, use: 'ts-loader', exclude: /node_modules/},
 			{
                 test: /\.scss$/,
-                use: [{loader: 'style-loader'}, {loader: 'css-loader'}, {loader: 'sass-loader'}],
-                query: {modules: true, localIdentName: '[name]__[local]___[hash:base64:5]'}
+                use: [{loader: 'style-loader'}, {loader: 'css-loader', query: {modules: true, localIdentName: '[name]__[local]___[hash:base64:5]'}}, {loader: 'sass-loader'}]
             }
     	]
     },

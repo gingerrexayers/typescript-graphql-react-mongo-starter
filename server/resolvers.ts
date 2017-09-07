@@ -6,7 +6,6 @@ const resolvers = {
             return getUsers()
         },
         user: (root: any, { id } : { id: string }) => {
-            console.log(typeof(root), typeof(id))
             return getUser(id)
         }
     }
